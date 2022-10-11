@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Pyikaaaa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Pyikaaaa">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Pyikaaaa">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Pyikaaaa">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Pyikaaaa" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+    
+    
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/Pyikaaaa" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜新念旧   芜湖!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/Pyikaaaa" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-11" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/10/10/11/" class="article-date">
+      <time datetime="2022-10-10T11:28:16.900Z" itemprop="datePublished">2022-10-10</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>是测试</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-shellcode分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/09/24/shellcode%E5%88%86%E6%9E%90/" class="article-date">
+      <time datetime="2022-09-24T12:59:01.492Z" itemprop="datePublished">2022-09-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong>GandCrab</strong> v2.0分析</p>
+<p><img src="https://img2018.cnblogs.com/common/1743055/201911/1743055-20191126144036331-1254171688.png" alt="img"></p>
+<p>1.静态分析</p>
+<p>无壳</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904150019688.png" alt="image-20220904150019688"></p>
+<p>EnumResourceNamesA 枚举资源名称，猜测是病毒提取解密资源段数据进行后续操作</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904150321357.png" alt="image-20220904150321357"></p>
+<p>2.动态分析</p>
+<p>模块一：GandCrad 读取资源数据 解密数据获取shellcode 动态执行shellcode</p>
+<p>winmain函数：</p>
+<p>含有大量无意义的函数调用和代码</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904152010667.png" alt="image-20220904152010667"></p>
+<p>动态获取GlobalAlloc函数地址  调用GlobalAlloc函数返回内存句柄</p>
+<p>调用EnumResourceNamesA 枚举资源数据，将数据写入到内存地址</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904154851222.png" alt="image-20220904154851222"></p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904154202035.png" alt="image-20220904154202035"></p>
+<p>调用EnumResourceNameA枚举资源，然后将资源数据循环复制到新内配的内存</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904154525470.png" alt="image-20220904154525470"></p>
+<p>[436b78]值为00FD41E8，写入的内存地址为00FD41E8</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904155536009.png" alt="image-20220904155536009"></p>
+<p>动态获取VirtualProtect 函数地址，调用VirtualProtect 将分配的内存保护属性修改为可读，可写，可执行</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904155832611.png" alt="image-20220904155832611"></p>
+<p>401014函数是对这块内存数据进行解密</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904155948025.png" alt="image-20220904155948025"></p>
+<p>解密代码：<br><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904160049487.png" alt="image-20220904160049487"></p>
+<p>然后执行这块内存的代码</p>
+<p>解密后的数据，解密过程直接跳过</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904160507894.png" alt="image-20220904160507894"></p>
+<h2 id="shellcode分析"><a href="#shellcode分析" class="headerlink" title="shellcode分析"></a>shellcode分析</h2><p>单步调试，发现fs:[30] 这是指向peb结构体，后面是常见的定位kernel32.dll基地址的操作</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904191900887.png" alt="image-20220904191900887"></p>
+<p>进入匹配kernel32.dll函数</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904192122901.png" alt="image-20220904192122901"></p>
+<p>匹配成功后，遍历kernel32.dll的导出表获得GetProcAddress函数地址</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904201437895.png" alt="image-20220904201437895"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">函数名称查函数地址：</span><br><span class="line">Windows 装载器的工作步骤如下：</span><br><span class="line"></span><br><span class="line">最初的步骤是一样的，那就是首先得到导出表的地址</span><br><span class="line">从导出表的 NumberOfNames 字段得到已命名函数的总数，并以这个数字作为循环的次数来构造一个循环</span><br><span class="line">从 AddressOfNames 字段指向得到的函数名称地址表的第一项开始，在循环中将每一项定义的函数名与要查找的函数名相比较，如果没有任何一个函数名是符合的，表示文件中没有指定名称的函数</span><br><span class="line">如果某一项定义的函数名与要查找的函数名符合，那么记下这个函数名在字符串地址表中的索引值，然后在 AddressOfNamesOrdinals 指向的数组中以同样的索引值取出数组项的值，我们这里假设这个值是x</span><br><span class="line">最后，以 x 值作为索引值，在 AddressOfFunctions 字段指向的函数入口地址表中获取的 RVA 就是函数的入口地址</span><br></pre></td></tr></table></figure>
+
+<p>通过GetProcAddress得到LoadLibraryA函数地址<img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904201818859.png" alt="image-20220904201818859"></p>
+<p>LoadLibraryA加载kernel32.dll<img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904202508004.png" alt="image-20220904202508004"></p>
+<p>然后调用GetProcAddress函数获取VirtualAlloc，VirtualProtect，VirtualFree，GetVersionExA，TerminateProcess函数地址，方便后续调用</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904202618414.png" alt="image-20220904202618414"></p>
+<p>调用VirtualAlloc函数，申请大小为23400h的空间，</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904202807007.png" alt="image-20220904202807007"></p>
+<p>解密出pe文件，改变这块内存保护属性</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904204113405.png" alt="image-20220904204113405"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rep stosb就是从EDI所指的内存开始，将连续的ECX个字节写成AL的内容，多用于清零等</span><br></pre></td></tr></table></figure>
+
+<p><strong>清空自身内存数据</strong></p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904205945870.png" alt="image-20220904205945870"></p>
+<p>然后把pe文件复制到自身内存空间，先复制pe头400大小，</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904211057690.png" alt="image-20220904211057690"></p>
+<p>可以对比看到pe文件在文件状态内存状态不同</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904211213214.png" alt="image-20220904211213214"></p>
+<p>复制区段</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904211348727.png" alt="image-20220904211348727"></p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904211424638.png" alt="image-20220904211424638"></p>
+<p>修复iat表：getprocaddress<br><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904212608223.png" alt="image-20220904212608223"></p>
+<p>修复重定位表，跳转到oep执行</p>
+<p>ida分析pe1.exe 调用函数<VirtualProtect> bp下断点</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904213530644.png" alt="image-20220904213530644"></p>
+<p>我们可以往上看下这个PE文件的由来，在004120C0创建硬件写入断点，重新运行程序，发现程序先在004120C0处写入一堆数据，然后进行异或操作，最终解密出了核心PE2.dll，</p>
+<p>ida看pe1.exe，解密数据</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904214551100.png" alt="image-20220904214551100"></p>
+<p>之后程序进入00401113函数，然后在00401069函数发现了程序寻找导出函数ReflectiveLoader的文件偏移位置，接着修改内存保护属性，调用ReflectiveLoader</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904214708443.png" alt="image-20220904214708443"></p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904214655518.png" alt="image-20220904214655518"></p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904221423905.png" alt="image-20220904221423905"></p>
+<p>这时我们进入ReflectiveLoader函数，看看病毒是如何实现反射注入的，打开IDA，把刚刚dump下来的PE2.dll载入，查看导出表，打开ReflectiveLoader函数，</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904221500070.png" alt="image-20220904221500070"></p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904221518838.png" alt="image-20220904221518838"></p>
+<p>（为了方便多次调试，直接分析pe1.exe）</p>
+<p>ReflectiveLoader分析：<br>1.<strong>定位DLL文件在内存中的基址</strong> 向前遍历找dll标识 mz pe</p>
+<p>2.通过PEB找到kernel32.dll中的LoadLibraryA(), GetProcAddress()，VirtualAlloc()以及ntdll.dll中的NtFlushInstructionCache()函数。</p>
+<p>3.<strong>分配一片用来装载DLL的空间</strong></p>
+<p><strong>4.复制PE文件头和各个节</strong><br>类似PE1<br><strong>5） 修复DLL的导入表</strong><br>类似PE1<br><strong>6） 修复DLL重定位表</strong></p>
+<p>调用dll oep</p>
+<h2 id="PE2-DLL数据分析"><a href="#PE2-DLL数据分析" class="headerlink" title="PE2.DLL数据分析"></a>PE2.DLL数据分析</h2><p>为了方便调试，修改ida加载基址</p>
+<p>初始化部分：</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904223526452.png" alt="image-20220904223526452"></p>
+<p>结束指定进程</p>
+<p><img src="C:\Users\58334\AppData\Roaming\Typora\typora-user-images\image-20220904224145355.png" alt="image-20220904224145355"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/09/24/hello-world/" class="article-date">
+      <time datetime="2022-09-24T11:45:32.143Z" itemprop="datePublished">2022-09-24</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/09/24/hello-world/">Hello World</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>hexo d</p>
+<embed src="./mydocument.pdf" width="100%" height="750" type="application/pdf">
+
+ <embed src="./mysql.pdf" width="100%" height="750" type="application/pdf">
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-text" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2022/08/01/text/" class="article-date">
+      <time datetime="2022-08-01T13:00:00.000Z" itemprop="datePublished">2022-08-01</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2022/08/01/text/">text</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>asdasd</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2022 Pyikaaaa
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/Pyikaaaa" target="_blank">Blog</a> ❤ Pyikaaaa
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
