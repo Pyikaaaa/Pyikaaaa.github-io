@@ -222,13 +222,70 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ul>
-<li><strong>docker:</strong> Docker 的二进制执行文件。</li>
-<li><strong>run:</strong> 与前面的 docker 组合来运行一个容器。</li>
-<li><strong>ubuntu:15.10</strong> 指定要运行的镜像，Docker 首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Docker Hub 下载公共镜像。</li>
-<li><strong>/bin/echo “Hello world”:</strong> 在启动的容器里执行的命令</li>
-</ul>
+        <h2 id="ubuntu安装docker"><a href="#ubuntu安装docker" class="headerlink" title="ubuntu安装docker"></a>ubuntu安装docker</h2><p>Docker 的旧版本被称为 docker，docker.io 或 docker-engine 。如果已安装，请卸载它们：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="keyword">get</span> <span class="keyword">remove</span> docker docker-engine docker.io containerd runc</span><br></pre></td></tr></table></figure>
 
+<p>在新主机上首次安装 Docker Engine-Community 之前，需要设置 Docker 仓库。之后，您可以从仓库安装和更新 Docker 。</p>
+<h3 id="更新-apt-包索引。"><a href="#更新-apt-包索引。" class="headerlink" title="更新 apt 包索引。"></a>更新 apt 包索引。</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo apt update</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包:"></a>安装依赖包:</h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">sudo</span> apt install apt-transport-https ca-certificates curl gnupg2 software-properties-<span class="meta">common</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加GPG密钥"><a href="#添加GPG密钥" class="headerlink" title="添加GPG密钥"></a>添加GPG密钥</h3><p>添加 Docker 的官方 GPG 密钥：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>curl -fsSL <span class="symbol">https:</span>/<span class="regexp">/download.docker.com/linux</span><span class="regexp">/ubuntu/gpg</span> |<span class="params"> sudo apt-key add -</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加软件源"><a href="#添加软件源" class="headerlink" title="添加软件源"></a>添加软件源</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository \</span><br><span class="line">   &quot;deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-DOCKER-ENGINE-COMMUNITY"><a href="#安装-DOCKER-ENGINE-COMMUNITY" class="headerlink" title="安装 DOCKER ENGINE-COMMUNITY"></a>安装 DOCKER ENGINE-COMMUNITY</h3><p>更新 apt 包索引。</p>
+<p>$ sudo apt update</p>
+<p>安装最新版本的 Docker Engine-Community</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo apt install docker-ce</span><br></pre></td></tr></table></figure>
+
+
+
+<p>当一个新的 Docker 发布时，你可以使用标准的<code>sudo apt update &amp;&amp; sudo apt upgrade</code>流程来升级 Docker 软件包。</p>
+<p>如果你想阻止 Docker 自动更新，锁住它的版本：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-mark hold docker-ce</span><br></pre></td></tr></table></figure>
+
+<h3 id="免sudo运行"><a href="#免sudo运行" class="headerlink" title="免sudo运行"></a>免sudo运行</h3><p>参考如下方法将用户添加到docke组</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo usermod -aG docker 你的用户名</span><br></pre></td></tr></table></figure>
+
+<p>重启docker</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+<p>重启docker不行就重启虚拟机</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>验证 Docker 是否已经成功被安装，</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker container run hello-world</span><br></pre></td></tr></table></figure>
+
+<p>如果本地没有该镜像，这个命令将会下载测试镜像</p>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image &#x27;hello-world:latest&#x27; locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">2db29710123e: Pull complete </span><br><span class="line">Digest: sha256:faa03e786c97f07ef34423fccceeec2398ec8a5759259f94d99078f264e9d7af</span><br><span class="line">Status: Downloaded newer image for hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker!</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.</span><br><span class="line">    (amd64)</span><br><span class="line"> 3. The Docker daemon created a new container from that image which runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, which sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker ID:</span><br><span class="line"> https://hub.docker.com/</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/get-started/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>docker pull默认从Docker Hub（<a target="_blank" rel="noopener" href="https://hub.docker.com/%EF%BC%89%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F%E3%80%82%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%89%8B%E5%8A%A8%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80%E6%8B%89%E5%8E%BB%E9%95%9C%E5%83%8F%E3%80%82">https://hub.docker.com/）下载镜像。也可以手动指定一个仓库地址拉去镜像。</a></p>
+<h3 id="如何上传镜像到dockerhub"><a href="#如何上传镜像到dockerhub" class="headerlink" title="如何上传镜像到dockerhub"></a>如何上传镜像到dockerhub</h3><p>首先在 <strong>Docker Hub</strong> 上注册一个账号：</p>
+<ul>
+<li>官网地址：<a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com/</a></li>
+</ul>
+<p>本地登录docker hub 帐号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker  login命令</span><br></pre></td></tr></table></figure>
+
+<p>为存在于本地的镜像打tag</p>
+<p>docker tag hangge_server yuhang0385/hangge_server:v1</p>
+<p>使用 <strong>docker push</strong> 命令将镜像上传到 <strong>Docker Hub</strong>：<br>docker push yuhang0385/hangge_server:v1</p>
+<p>因为网速的问题，可以将得到的镜像上传到阿里云：参考链接：<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/51810.html">https://help.aliyun.com/document_detail/51810.html</a></p>
+<p>拉取镜像：</p>
+<p>docker pull yuhang0385/hangge_server:v1 </p>
+<h2 id="docker镜像导出和导入"><a href="#docker镜像导出和导入" class="headerlink" title="docker镜像导出和导入"></a>docker镜像导出和导入</h2><p>使用 <strong>docker images</strong> 命令查看本机所有的镜像</p>
+<p>使用 <strong>docker save</strong> 命令根据 <strong>ID</strong> 将镜像保存成一个文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save ID &gt; xx.tar</span><br></pre></td></tr></table></figure>
+
+<p>我们还可以同时将多个 <strong>image</strong> 打包成一个文件，比如下面将镜像库中的 <strong>postgres</strong> 和 <strong>mongo</strong> 打包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o xx.tar REPOSITORY:TAg REPOSITORY:TAg </span><br></pre></td></tr></table></figure>
+
+<p>使用<strong>docker load</strong>命令进行镜像导入，命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker load &lt; xx.tar</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.hangge.com/blog/cache/detail_2411.html">Docker - 实现本地镜像的导出、导入（export、import、save、load） (hangge.com)</a></p>
+<h2 id="docker常见命令行"><a href="#docker常见命令行" class="headerlink" title="docker常见命令行"></a>docker常见命令行</h2>
       
     </div>
     
